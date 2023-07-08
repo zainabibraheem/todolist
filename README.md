@@ -1,2 +1,2 @@
 # todolist
-a practical study of todolist
+a practical study of todolist app
