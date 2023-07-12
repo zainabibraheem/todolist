@@ -1,2 +1,2 @@
 # todolist
-a practical study of todolist app
+a practical study on a todo list app built with React
