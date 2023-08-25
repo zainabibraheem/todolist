@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {MdDeleteOutline} from 'react-icons/md'
 import {BiPencil} from 'react-icons/bi'
 
-function Todolist() {
+function Todolist(props) {
   const [input, setInput] = useState('')
   const [list, setList] = useState([])
 
@@ -18,7 +18,6 @@ function addTask(todo){
 
 }
 
-const submitForm = (event)=>{event.preventDefault()}
 
 const deletetodo = (id) => {
   const newList = list.filter((todo) => todo.id !== id )
@@ -26,8 +25,8 @@ const deletetodo = (id) => {
 }
 
   return (
-    <form className='todolist' onSubmit={submitForm} > 
-      <h1 className='todo-title'>Todolist App</h1>
+    <div className={props.darkMode ? 'todolist-dark' : 'todolist'} > 
+      <h1 className='title'>Todolist App</h1>
       <div className='input-div'>
       <input className='todo-input'
       type='text'
@@ -39,12 +38,12 @@ const deletetodo = (id) => {
 
       <div className='input-list'>
       <ul className='list'>
-        {list.map((todo)=>{return <li key={todo.id}>{todo.todo} <span><BiPencil /> 
-        <MdDeleteOutline onClick={() => deletetodo(todo.id)}/></span> </li>})}
+        {list.map((todo)=>{return <li key={todo.id}> {todo.todo} <span><BiPencil className='list-icon'/> 
+        <MdDeleteOutline className='list-icon' onClick={() => deletetodo(todo.id)}/></span> </li>})}
       </ul>
       </div>
       
-    </form>
+    </div>
   )
 }
 
